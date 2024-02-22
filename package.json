@@ -1,21 +1,21 @@
 {
-  "name": "compuservice",
+  "name": "compu_service",
   "version": "1.0.0",
   "description": "e-commerce app",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
-  },
   "author": "Mohamed Adel",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.18.2",
-    "mongoose": "^8.1.3",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.3"
+  "scripts": {
+    "frontend:install": "cd frontend && npm install -f",
+    "frontend:start": "cd frontend && npm run start",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:test": "cd frontend && npm run test",
+    "frontend:e2e": "cd frontend && npm run e2e",
+    "frontend:lint": "cd frontend && npm run lint",
+    "frontend:deploy": "cd frontend && npm run deploy",
+    "backend:install": "cd backend && npm install .",
+    "backend:build": "cd backend && npm run build",
+    "backend:start": "cd backend && npm run dev",
+    "backend:deploy": "cd backend && npm run deploy",
+    "deploy": "npm run backend:deploy && npm run frontend:deploy"
   }
 }
