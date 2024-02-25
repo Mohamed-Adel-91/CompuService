@@ -5,10 +5,15 @@ const {
     updateCategory,
     getAllCategory,
     deleteCategory,
+    getOneCategory,
 } = require("../controllers/category.service");
 
 // Routes
 router.route("/").get(getAllCategory).post(createCategory);
-router.route("/:id").put(updateCategory).delete(deleteCategory);
+router
+    .route("/:id")
+    .get(getOneCategory)
+    .put(updateCategory)
+    .delete(deleteCategory);
 
 module.exports = router;

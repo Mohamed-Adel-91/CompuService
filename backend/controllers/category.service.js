@@ -2,17 +2,44 @@ const slugify = require("slugify");
 const CategoryModel = require("../models/category.schema");
 const asyncHandler = require("express-async-handler");
 
-// Get all categories from the database and send them to the client side
+//@desc Get all categories from the database and send them to the client side
+//@route GET /api/v1/categories
+//@access Public
+
 exports.getAllCategory = asyncHandler(async (req, res) => {
-    const allCategories = await CategoryModel.find();
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || 10;
+    const skip = (page - 1) * limit;
+    const allCategories = await CategoryModel.find({}).skip(skip).limit(limit);
     if (!allCategories || allCategories.length === 0) {
         return res.status(404).json({ message: "No category found" });
     } else {
-        return res.status(200).json(allCategories);
+        return res
+            .status(200)
+            .json({ results: allCategories.length, page, data: allCategories });
     }
 });
 
-// Add a new category in the database
+//@desc Get one categories from the database and send them to the client side
+//@route GET /api/v1/categories/:id
+//@access Public
+
+exports.getOneCategory = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const oneCat = await CategoryModel.findById(id);
+    if (!oneCat) {
+        return res
+            .status(404)
+            .json({ message: `Category with id ${id} not found` });
+    } else {
+        res.status(200).json({ data: oneCat });
+    }
+});
+
+//@desc Add a new category in the database
+//@route POST /api/v1/categories
+//@access Private
+
 exports.createCategory = asyncHandler(async (req, res) => {
     const name = req.body.name;
     // Checking whether the field is empty or not
@@ -34,7 +61,10 @@ exports.createCategory = asyncHandler(async (req, res) => {
     }
 });
 
-// Update an existing category
+//@desc Update an existing category
+//@route PUT /api/v1/categories/:id
+//@access Private
+
 exports.updateCategory = asyncHandler(async (req, res) => {
     const id = req.params.id;
     const update = req.body;
@@ -50,7 +80,10 @@ exports.updateCategory = asyncHandler(async (req, res) => {
     }
 });
 
-// Delete a category by its ID
+//@desc Delete a category by its ID
+//@route DELETE /api/v1/categories/:id
+//@access Private
+
 exports.deleteCategory = asyncHandler(async (req, res) => {
     const id = req.params.id;
 
