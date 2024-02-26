@@ -5,7 +5,7 @@ function errorHandler(err, req, res, next) {
     winston.error(err.message, err);
     //error - warn - info - verbose - debug - silly
     winston.info(err.message);
-    res.status(500).send(`Internal Server Error Something  went wrong!`);
+    res.status(500).json({ msg: "Internal Server Error", error: err.message });
     next();
 }
 

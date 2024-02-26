@@ -1,6 +1,7 @@
-const morganLogger = require("./middleware/morganLogger");
-const dbConnection = require("./config/database");
 const express = require("express");
+require("express-async-errors");
+const morganLogger = require("./start/morganLogger");
+const dbConnection = require("./config/database");
 const dotenv = require("dotenv");
 const winston = require("winston");
 
@@ -19,10 +20,6 @@ morganLogger();
 // Routes
 require("./start/logging")(); // Logging initialization
 require("./api/v1")(app);
-
-app.use((err, req, res, next) => {
-    res.status(500).json({ error: err.message || "Internal Server Error" });
-});
 
 // Create the server and listen on port 8000
 const PORT = process.env.PORT || 8000;

@@ -1,6 +1,5 @@
 const winston = require("winston");
 const { format } = winston;
-require("express-async-errors");
 
 module.exports = function () {
     // Add exception handler

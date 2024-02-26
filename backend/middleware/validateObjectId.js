@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 function validateObjectId(req, res, next) {
     if (!mongoose.Types.ObjectId.isValid(req.params.id))
-        return res.status(404).send("No valid object ID provided");
+        return res.status(404).json({ msg: "No valid object ID provided." });
     next();
 }
 
