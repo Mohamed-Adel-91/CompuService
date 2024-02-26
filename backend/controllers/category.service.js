@@ -2,6 +2,9 @@ const slugify = require("slugify");
 const CategoryModel = require("../models/category.schema");
 const asyncHandler = require("express-async-handler");
 
+// Regular expression to check for symbols, or numbers
+const regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?0-9]/;
+
 //@desc Get all categories from the database and send them to the client side
 //@route GET /api/v1/categories
 //@access Public
@@ -42,22 +45,38 @@ exports.getOneCategory = asyncHandler(async (req, res) => {
 
 exports.createCategory = asyncHandler(async (req, res) => {
     const name = req.body.name;
+
     // Checking whether the field is empty or not
     if (!name) {
         return res.status(400).json({ message: "Name field cannot be empty!" });
     }
-    let category = await CategoryModel.findOne({ name: name });
-    // If there's already such a category then it will return an error otherwise it will add a new one
-    if (category) {
-        return res
-            .status(409)
-            .json({ message: "This category already exists." });
-    } else {
-        const newCategory = await CategoryModel.create({
-            name,
-            slug: slugify(name),
+
+    if (
+        regex.test(name) ||
+        name.startsWith(" ") ||
+        name.startsWith("\n") ||
+        name.endsWith(" ") ||
+        name.endsWith("\n") ||
+        name.length < 3
+    ) {
+        return res.status(400).json({
+            message:
+                "Please enter valid input without any special characters or spaces or numbers or less then three letters.",
         });
-        res.status(201).json({ data: newCategory });
+    } else {
+        let category = await CategoryModel.findOne({ name: name });
+        // If there's already such a category then it will return an error otherwise it will add a new one
+        if (category) {
+            return res
+                .status(409)
+                .json({ message: "This category already exists." });
+        } else {
+            const newCategory = await CategoryModel.create({
+                name,
+                slug: slugify(name),
+            });
+            res.status(201).json({ data: newCategory });
+        }
     }
 });
 
@@ -66,17 +85,39 @@ exports.createCategory = asyncHandler(async (req, res) => {
 //@access Private
 
 exports.updateCategory = asyncHandler(async (req, res) => {
-    const id = req.params.id;
-    const update = req.body;
+    const { id } = req.params;
+    const { name } = req.body;
+    // Checking whether the field is empty or not
+    if (!name) {
+        return res.status(400).json({ message: "Name field cannot be empty!" });
+    }
 
-    const updatedCategory = await CategoryModel.findByIdAndUpdate(id, update, {
-        new: true,
-    });
-
-    if (!updatedCategory) {
-        return res.status(404).json({ message: "Category not found." });
+    if (
+        regex.test(name) ||
+        name.startsWith(" ") ||
+        name.startsWith("\n") ||
+        name.endsWith(" ") ||
+        name.endsWith("\n") ||
+        name.length < 3
+    ) {
+        return res.status(400).json({
+            message:
+                "Please enter valid input without any special characters or spaces or numbers or less then three letters.",
+        });
     } else {
-        return res.json(updatedCategory);
+        const updatedCategory = await CategoryModel.findByIdAndUpdate(
+            { _id: id },
+            { name, slug: slugify(name) },
+            {
+                new: true,
+            }
+        );
+
+        if (!updatedCategory) {
+            return res.status(404).json({ message: "Category not found." });
+        } else {
+            return res.json(updatedCategory);
+        }
     }
 });
 
