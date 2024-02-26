@@ -116,7 +116,7 @@ exports.updateCategory = asyncHandler(async (req, res) => {
         if (!updatedCategory) {
             return res.status(404).json({ message: "Category not found." });
         } else {
-            return res.json(updatedCategory);
+            return res.status(200).json(updatedCategory);
         }
     }
 });
@@ -129,6 +129,9 @@ exports.deleteCategory = asyncHandler(async (req, res) => {
     const id = req.params.id;
 
     const deletedCategory = await CategoryModel.findByIdAndDelete(id);
+    if (!deletedCategory) {
+        return res.status(404).json({ message: "Category not found." });
+    }
     return res
         .status(200)
         .json({ message: `${deletedCategory.name} Deleted Successfully!` });
