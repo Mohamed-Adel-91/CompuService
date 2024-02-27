@@ -350,3 +350,5 @@
 {"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-00.wmopddj.mongodb.net","timestamp":"2024-02-27T16:02:07.454Z"}
 {"level":"info","message":"Server is running on http://localhost:8000","timestamp":"2024-02-27T16:02:26.513Z"}
 {"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-00.wmopddj.mongodb.net","timestamp":"2024-02-27T16:02:27.973Z"}
+{"level":"info","message":"Server is running on http://localhost:8000","timestamp":"2024-02-27T16:02:33.371Z"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-00.wmopddj.mongodb.net","timestamp":"2024-02-27T16:02:34.637Z"}
