@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const winston = require("winston");
 
 module.exports = function () {
     if (process.env.NODE_ENV !== "production") {
         app.use(morgan("dev")); // log to console for development
-        console.log(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
+        winston.info(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
     } else {
         app.use(
             morgan("common", {

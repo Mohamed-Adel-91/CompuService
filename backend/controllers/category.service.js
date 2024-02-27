@@ -123,6 +123,6 @@ exports.deleteCategory = asyncHandler(async (req, res, next) => {
         return;
     }
     return res
-        .status(200)
+        .status(204)
         .json({ message: `${deletedCategory.name} Deleted Successfully!` });
 });

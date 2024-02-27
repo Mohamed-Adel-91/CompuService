@@ -1,4 +1,6 @@
 const winston = require("winston");
+require("express-async-handler");
+require("express-async-errors");
 
 // Global error handling middleware
 function errorHandler(err, req, res, next) {
@@ -14,15 +16,32 @@ function errorHandler(err, req, res, next) {
     winston.error(err.message, err);
     winston.info(err.message);
 
-    res.status(err.statusCode).json({
+    if (process.env.NODE_ENV === "development") {
+        sendErrorForDev(err, res);
+    } else if (process.env.NODE_ENV === "production") {
+        sendErrorForProd(err, res);
+    }
+    next();
+}
+
+// Development environment error handler,
+// sends a stack trace to client with status code and message
+
+const sendErrorForDev = (err, res) => {
+    return res.status(err.statusCode).json({
         status: err.status,
         message: err.message,
         error: err,
         stack: err.stack,
     });
+};
 
-    next();
-}
+const sendErrorForProd = (err, res) => {
+    return res.status(err.statusCode).json({
+        status: err.status,
+        message: err.message,
+    });
+};
 
 module.exports = errorHandler;
 // this middleware  will catch any errors that are not caught by other middlewares

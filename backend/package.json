@@ -4,8 +4,9 @@
   "description": "e-commerce app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "start:prod": "set NODE_ENV=production && node server.js"
+
   },
   "keywords": [],
   "author": "",
