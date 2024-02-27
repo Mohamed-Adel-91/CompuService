@@ -1,8 +1,13 @@
+const ApiError = require("../utils/apiError");
+
 const validate = (validator) => {
     return (req, res, next) => {
         //checking errors with validating request
         const { error } = validator(req.body);
-        if (error) return res.status(400).json(error.message);
+        if (error) {
+            next(new ApiError(`${error.message}`, 400));
+            return;
+        }
         next();
     };
 };

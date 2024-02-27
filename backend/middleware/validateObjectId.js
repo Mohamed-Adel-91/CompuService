@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
+const ApiError = require("../utils/apiError");
 
 function validateObjectId(req, res, next) {
-    if (!mongoose.Types.ObjectId.isValid(req.params.id))
-        return res.status(404).json({ msg: "No valid object ID provided." });
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        next(new ApiError("No valid object ID provided.", 404));
+        return;
+    }
     next();
 }
 
