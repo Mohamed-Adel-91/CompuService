@@ -1,4 +1,4 @@
-// Regular expression to check for symbols, or numbers
+// Regular expression to check for symbols, spaces or numbers and length not less then 3 letters
 const regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?0-9]/;
 
 const isValidName = (name) => {
