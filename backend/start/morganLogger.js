@@ -6,7 +6,9 @@ const winston = require("winston");
 module.exports = function () {
     if (process.env.NODE_ENV !== "production") {
         app.use(morgan("dev")); // log to console for development
-        winston.info(`process.env.NODE_ENV is ${process.env.NODE_ENV}`);
+        const logger = `process.env.NODE_ENV is ${process.env.NODE_ENV}`;
+        winston.info(logger);
+        console.log(logger);
     } else {
         app.use(
             morgan("common", {

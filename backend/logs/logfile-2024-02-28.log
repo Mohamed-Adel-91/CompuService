@@ -1,0 +1,36 @@
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"error","message":"Unhandled Rejection Errors: MongoServerError \n bad auth : Authentication failed. \n MongoServerError: bad auth : Authentication failed.\n    at Connection.onMessage (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:205:26)\n    at MessageStream.<anonymous> (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:64:60)\n    at MessageStream.emit (node:events:514:28)\n    at processIncomingData (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:117:16)\n    at MessageStream._write (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:33:9)\n    at writeOrBuffer (node:internal/streams/writable:556:12)\n    at _write (node:internal/streams/writable:490:10)\n    at Writable.write (node:internal/streams/writable:494:10)\n    at TLSSocket.ondata (node:internal/streams/readable:985:22)\n    at TLSSocket.emit (node:events:514:28) "}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"error","message":"Database Error : MongoServerError: bad auth : Authentication failed."}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"error","message":"Unhandled Rejection Errors: MongoServerError \n bad auth : Authentication failed. \n MongoServerError: bad auth : Authentication failed.\n    at Connection.onMessage (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:205:26)\n    at MessageStream.<anonymous> (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:64:60)\n    at MessageStream.emit (node:events:514:28)\n    at processIncomingData (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:117:16)\n    at MessageStream._write (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:33:9)\n    at writeOrBuffer (node:internal/streams/writable:556:12)\n    at _write (node:internal/streams/writable:490:10)\n    at Writable.write (node:internal/streams/writable:494:10)\n    at TLSSocket.ondata (node:internal/streams/readable:985:22)\n    at TLSSocket.emit (node:events:514:28) "}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"error","message":"Unhandled Rejection Errors: MongoServerError \n bad auth : Authentication failed. \n MongoServerError: bad auth : Authentication failed.\n    at Connection.onMessage (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:205:26)\n    at MessageStream.<anonymous> (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\connection.js:64:60)\n    at MessageStream.emit (node:events:514:28)\n    at processIncomingData (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:117:16)\n    at MessageStream._write (E:\\e-commerce\\CompuService\\backend\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:33:9)\n    at writeOrBuffer (node:internal/streams/writable:556:12)\n    at _write (node:internal/streams/writable:490:10)\n    at Writable.write (node:internal/streams/writable:494:10)\n    at TLSSocket.ondata (node:internal/streams/readable:985:22)\n    at TLSSocket.emit (node:events:514:28) "}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-02.wmopddj.mongodb.net"}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-02.wmopddj.mongodb.net"}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-00.wmopddj.mongodb.net"}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-01.wmopddj.mongodb.net"}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-02.wmopddj.mongodb.net"}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-00.wmopddj.mongodb.net"}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-00.wmopddj.mongodb.net"}
+{"level":"info","message":"process.env.NODE_ENV is development"}
+{"level":"info","message":"Server is running on http://localhost:8000"}
+{"level":"info","message":"Database connected : ac-hsyyfe0-shard-00-01.wmopddj.mongodb.net"}

@@ -24,5 +24,15 @@ require("./api/v1")(app);
 // Create the server and listen on port 8000
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-    winston.info(`Server is running on ${"http://localhost:" + PORT}`);
+    const logger = `Server is running on ${"http://localhost:" + PORT}`;
+    winston.info(logger);
+    console.log(logger);
+});
+
+// Global Error Handling
+process.on("unhandledRejection", (err) => {
+    const logger = `Unhandled Rejection Errors: ${err.name} \n ${err.message} \n ${err.stack} `;
+    winston.error(logger);
+    console.log(logger);
+    process.exit(1);
 });
