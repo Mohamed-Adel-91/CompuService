@@ -11,17 +11,21 @@ function errorHandler(err, req, res, next) {
     }
     err.status = err.status || "error";
 
-    // log the exception
+    // log the errors
     //error - warn - info - verbose - debug - silly
-    winston.error(err.message, err);
-    winston.info(err.message);
+    winston.error(err.message + "\n" + err.stack);
 
     if (process.env.NODE_ENV === "development") {
         sendErrorForDev(err, res);
     } else if (process.env.NODE_ENV === "production") {
         sendErrorForProd(err, res);
+    } else {
+        // Default response
+        res.status(500).json({
+            status: "error",
+            message: "An error occurred",
+        });
     }
-    next();
 }
 
 // Development environment error handler,

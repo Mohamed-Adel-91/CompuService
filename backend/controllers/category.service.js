@@ -3,6 +3,7 @@ const CategoryModel = require("../models/category.schema");
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
 const { isValidName } = require("../utils/regex");
+require("express-async-handler");
 
 //@desc Get all categories from the database and send them to the client side
 //@route GET /api/v1/categories

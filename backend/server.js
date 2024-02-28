@@ -1,5 +1,5 @@
+require("express-async-errors"); // Middleware for handling errors in async functions must be first line
 const express = require("express");
-require("express-async-errors");
 const morganLogger = require("./start/morganLogger");
 const dbConnection = require("./config/database");
 const dotenv = require("dotenv");
